@@ -1,0 +1,53 @@
+* TIME COMPLEXITY :
+
+- It does mean how much time a code is taking to run, it might be different in old and new computers.  Tc != Time taken.
+- Time complexity means the rate at which time taken increases with respect to the input size.
+
+
+* BIG O NOTATION:
+
+- it is used to represent the time complexity in terms is O().
+  for example:
+              for(int i = 1; i < 5; i++); {
+                System.out.println();  }
+              
+        in this loop, there are 3 operations/ steps, 1-condition check, 2-print statement, 3-increment i
+        and this will repeat 5 times.  
+        So Time Complexity will be O(5*3) = O(15)
+
+              for(int i = 1; i < n; i++); {
+                System.out.println();  }
+
+        Time complexity for the above ex is O(n*3)
+
+                                                         ** Rules **
+
+- Always take the time complexity for worst case scenario,becuase it the time required to solve the complete problem. There are three cases
+  worst case, Best case, Average case will be the (best + worst)/2.
+
+- Avoid Constants- beacuse  if input size is 10^5.
+        O(3n^3, 4n^2, 8) is the time complexity.
+         Then TC beccomes  O(3 10^15, 4 10^10, 8),  so adding 8 does not make any significance.
+
+- Avoid the smaller values,  beacuse from above example, 10 ^ 15 is a very big number, So adding 10 ^ 10 to 10 ^ 15 does not make any significance.
+
+
+* Big 0 notation --> Worst case --> higher bound
+* theata Notaion --> average case
+* Omega notation --> Best case --> lower bound
+
+
+
+Time Complexity example :
+
+1)  for(int i = 0; i<n ; i++) {
+      for(int j = 0; j<n; j++) {
+          System.out.print()
+      }
+    }
+
+  In this example the iteration goes like
+
+  i = 0 , j = (1,2...n)      So the i runs N times and j runs also N times, so Tc will be O(n*n) == O(n^2)
+  i = 1, j = (1,2...n)        there are 3 operations in loop, it should be in the TC , but we will avaoid , s.
+  So on                      acc to the Big o natation rule --> Avoid the lower values.
