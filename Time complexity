@@ -51,3 +51,17 @@ Time Complexity example :
   i = 0 , j = (1,2...n)      So the i runs N times and j runs also N times, so Tc will be O(n*n) == O(n^2)
   i = 1, j = (1,2...n)        there are 3 operations in loop, it should be in the TC , but we will avaoid , s.
   So on                      acc to the Big o natation rule --> Avoid the lower values.
+
+
+
+** SPACE COMPLEXITY :
+
+- It is also represented using the BIG O notation
+- It counts two spaces
+    > Variable spaces - one for each variable
+    > Auxillary spaces - the space used to solve the problem
+
+  example
+        a = 10;
+        b = 20;
+        c = a + b;  ---> Auxillary Space.            So the Space complexity will be O(3). for the size of N elements Space Complexity is O(n).
