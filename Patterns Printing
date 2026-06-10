@@ -86,4 +86,62 @@ Pattern 6 :
 
 pattern 7:
 
- 
+*                    this one print the 2*n-1 rows,                 outer loop {
+**                        if n = 5, rows = 9                           int stars = i;
+***                        outer loop is i=1,i<=2*n-1                  if i>n { stars = 2*n-i}
+****                  after that, check the conditon -->                    }
+*****                                                                  inner loop
+****
+***
+**
+*
+
+
+Pattern 8:
+
+1          here we print, 0 and 1 by toggleing, CONDITION > if row is even then start with 1, else 0
+01         after the inner loop > PRINT>  i toggle the valve,     START = 1 - START    
+101
+0101
+10101
+
+
+
+PATTERN 9:
+
+1         1         here, 3 inner loops,  1) j=1, j<=i, j++  ---> left side numbers      SPACES = 2 * n - 1
+12       21                               2) j=1, j<=SPACES, j++  ---> Spaces , reduce by 2 after every outer loop iteration
+123     321                               3) j=i, j>=1, j--   ---> decresing order of numbers
+1234   4321                                 
+12345 54321                                    SPACES - = 2
+
+
+
+
+Pattern 10:
+
+1                      take START = 1,   After print START,   increament the START in inner loop 
+2 3                         
+4 5 6 
+7 8 9 10 
+11 12 13 14 15
+
+
+
+Pattern 11:
+
+A                        For charecter printing, use inner loop as
+A B                         for( char ch = 'A'; ch < 'A'+1; ch++)
+A B C 
+A B C D 
+A B C D E 
+
+
+pattern 12:
+
+
+A B C D E                     for(char ch = 'A'; ch <= 'A'+(n-i-1); ch++)
+A B C D 
+A B C 
+A B 
+A 
