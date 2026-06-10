@@ -13,6 +13,8 @@ template code:
                 System.out.println();           ---> this is for the next line. after inner loop condition fails.
               }
 
+
+
 Pattern 1 :
 
 * * * *               N = 4,  for(int i = 0; i < N; i++)             Here,  i = 0, j = 0,1,2,3
@@ -20,6 +22,7 @@ Pattern 1 :
 * * * *                              System.out.print("* ")
 * * * *       
           print start until j < N.
+
 
 
 
@@ -32,4 +35,55 @@ pattern 2 :
 
 
 
+
 Pattern 3:
+
+* * * *        intialize j = n,                     1 2 3 4        intialize j = n,  untill j > i
+* * *          print stars unitl j > i,             1 2 3           print (n-j+1)
+* *                                                 1 2
+*                                                   1
+
+
+
+Pattern 4:
+
+1              j = 0, j <= i
+2 2            print i + 1
+3 3 3
+4 4 4 4
+
+
+
+Pattern 5:
+
+    *            here, 3 inneer loops needed,                   *  *  *  *         3 loops
+   *  *              1) j=0, j<n-i-1 for spaces                   *  *  *          1) j=0, j<i, j++  for space
+ *   *   *           2) j=0, j< 2*i+1  for *                        *  *           2) j=0, j < 2 * n - (2 * i + 1)  for stars
+*   *  *   *         3) j=0, j<n-i-1  for symetry (optional)         *             3) j= 0, j < i  for symetrry
+Erect pyramid                                                    Inverted pyramid
+
+
+Pattern 6 :
+
+
+       *
+      *** 
+     *****                    for this pattern,    Erect Pyramid + Inveretd Pyramid 
+    *******                          under Class Solution{
+   *********                                > erect pyramid code
+  ***********                               > Inverted pyramid code
+ *************      
+***************                       Class Main{                 pass value to both methods
+***************                          >sol.erectpy(n)
+ *************                           >sol.invertpy(n)
+  ***********  
+   *********   
+    *******    
+     *****     
+      ***      
+       * 
+
+
+pattern 7:
+
+ 
