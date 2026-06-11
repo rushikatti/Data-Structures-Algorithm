@@ -218,4 +218,14 @@ pattern 18:
 
 pattern 19:
 
+5 5 5 5 5 5 5 5 5             run loop from,  i=0, i= 2*n -1
+5 4 4 4 4 4 4 4 5             top = i   bottom = (2*n-2)-i
+5 4 3 3 3 3 3 4 5              left = j   right = (2*n-2)-j
+5 4 3 2 2 2 3 4 5 
+5 4 3 2 1 2 3 4 5           calculate the min distace of top, bottom, left, right
+5 4 3 2 2 2 3 4 5            MinDist = Math.min(Math.min(top,bottom),Math.min(left,right))
+5 4 3 3 3 3 3 4 5 
+5 4 4 4 4 4 4 4 5            print ((n-MinDist) + " ")
+5 5 5 5 5 5 5 5 5 
+
 
