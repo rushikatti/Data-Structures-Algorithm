@@ -145,3 +145,27 @@ A B C D
 A B C 
 A B 
 A 
+
+
+Pattern 13:
+
+E                for(char ch = (char) ('A' + N - 1 - i); ch <= (char) 'A' + N - 1; ch++)
+D E               ASIIC  A == 65,  E == 69
+C D E             Starting charecter will be change w r t to N
+B C D E 
+A B C D E 
+
+
+
+Pattern 14:
+
+A                  every i print  'A'+i, so intialise  Char ch = (char) ('A'+i)
+B B 
+C C C 
+D D D D 
+E E E E E 
+
+
+pattern 15:
+
+
