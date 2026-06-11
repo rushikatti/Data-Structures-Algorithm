@@ -168,4 +168,40 @@ E E E E E
 
 pattern 15:
 
+    A                    ch = 'A',   breakpoint  = 2*i+1/2
+   ABA                   if (j <= breakpoint)  ch++
+  ABCBA                  else ch--;
+ ABCDCBA
+ABCDEDCBA
 
+
+
+pattern 16;
+
+
+**********              Uppper half + Lower half
+****  ****              upper half :   intiallize spaces = 0 , >> Spaces + 2 for every row
+***    ***                            1) j=0, j<n-i, j++
+**      **                            2) j=0, j<spaces, j++
+*        *                            3) j=0, j<n-i, j++
+*        *
+**      **              lower half : spaces = 2 * N - 2,  << spaces - 2
+***    ***                            1) j=0, j<=i, j++
+****  ****                            2) j=0, j<=spaces, j++                    
+**********                            3) j=0, j<=i, j++
+
+
+
+pattern 17:
+
+
+*        *               Upper half + lower half
+**      **               upper half :  spaces = 2 * n - 2,  << spaces - 2
+***    ***                            1) j=0, j<=i, j++            
+****  ****                            2) j=0, j<=spaces, j++                    
+**********                            3) j=0, j<=i, j++
+****  ****
+***    ***               lower half : spaces = 2, >> spaces + 2
+**      **                            1) j=0, j<n-i-1, j++
+*        *                            2) j=0, j<spaces, j++
+                                      1) j=0, j<n-i-1, j++
