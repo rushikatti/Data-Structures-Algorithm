@@ -1,0 +1,29 @@
+Digits :
+ example >> n =  45467                       extract the last digit using % Modulo.   n % 10 = 7
+                                            reduce the number by diving the 10.  n / 10 = 45467 , agin extarct the digit .....
+
+                                            While(n>0){
+                                             lastDigit = n % 10;
+                                             .
+                                             .
+                                             n = n / 10;
+                                             }
+
+
+
+Problem 1 :
+
+count the digits in the number:    N = 456            brute force >>                                >> Optimal solution      
+                                                                  int count = 0;                          int count = (int) (log10(N)+1);  
+                                                                while (N>0) {                              return count;    
+                                                                    count = count + 1;  
+                                                                    N = N / 10;                      -- When ever in the code , the number is divible by 10
+                                                                    }                                          time complexity will be in 
+                                                                    return count;                                O(log10(n))  
+                                                                                                        if  N / 2, then  (log2(N)
+                                                                                                        if N / 3, then O(log2(N))
+                                                                                                        
+Problem 2 :
+
+
+                                                                                                        
