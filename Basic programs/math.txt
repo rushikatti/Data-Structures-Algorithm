@@ -25,5 +25,31 @@ count the digits in the number:    N = 456            brute force >>            
                                                                                                         
 Problem 2 :
 
+Reverse number :       N = 576          int rev = 0
+                                     .  while(n>0){
+                                         int ld = n % 10;
+                                         rev = rev * 10 + ld;
+                                         n = n/10;
+                                                    }
+                                         return rev;
+
+
+problem 3 :
+
+palindrome check,           same as rev, compare rev with original num.    assign the original num to duplicate variable first.
+
+
+Problem 4:
+
+Amstrong number,   sum of qube of didgits = num,    int sum = 0,  sum = sum + (ld * ld *ld)
+
+
+
+Problem 5 :
+
+print all the divisibles of  num,          run an loop form, for( int i = 0; i <= n; i++) and check  if ( n % i == 0) then print i
+
+                                     optimal >> 
+                              
 
                                                                                                         
