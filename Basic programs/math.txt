@@ -49,7 +49,26 @@ Problem 5 :
 
 print all the divisibles of  num,          run an loop form, for( int i = 0; i <= n; i++) and check  if ( n % i == 0) then print i
 
-                                     optimal >> 
-                              
 
-                                                                                                        
+Problem 6:
+
+Prime number check :                 int count = 1,  for(int i = 2; i <= n; i++), if(n%i==0) , count += 1, return count          TC = O(n)
+
+
+                                    >> optimal approach
+                                                       run the loop until the  Math.min(sqrt(n)).   TC == O(sqrt(n))
+
+
+
+problem 7:
+
+GCD of n1, n2,                >  loop up to min(n1, n2),  if(n1%i==0 && n2 % i==0), return i         TC = O(min(n1,n2))
+
+                              >> better approach : Start the loop from  Math.min(n1,n2),  beacuse the first common divisor will be the GCd,   TC = O(min(n1,n2))
+
+                              >>> Optimal solution :   EUCLIDIAN FORMULA                          
+                                                   
+                                                      substract the large number by smaller one, untill one number become 0
+                                                      if ( 20, 5) = then (20-5,5) = (15,5) >> (10,5) >> (5, 5) >> (0,5)
+                                                                                  if n1 == 0 , return n2
+                                                                                  else return n1
