@@ -12,3 +12,18 @@ example;     printing the name N times
             printName(name,count + 1, N);
 
            }
+
+
+Example 2 :         Print the number from 1 to N                      1 to 3   , step 1 : printnum(1,3) > base condn fails > print 1 > printnum(1+1,3) 
+
+                   void  PrintNum ( int current, int N ){                        step 2 :  Printnum(2,3) > base Fails > print 2 > Printnum( 2+1,3)
+
+                     if( current > N){                                           step 3:  Printnum(3,3) > base fails > print 3 > printnum(3+1, 3)
+                              return; }
+                                                                                step 4: Printnum(4,3) > base pass > return
+                    System.out.println(current);
+
+                    PrintNum ( current + 1, N);
+                                                                      TC : O(N)   >> uses the N operations
+                    }
+                                                                      SC : O(N)   >> store in N stacks
