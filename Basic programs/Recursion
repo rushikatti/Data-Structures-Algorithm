@@ -1,1 +1,14 @@
 Recursion :    functional calling itself untill the condition met.
+
+example;     printing the name N times
+
+          printName(String name, int count, int N) {
+
+            if ( count == N ){
+                return                --->>  This is base case,  once this pass the  recursion will end.
+                      }
+            System.out.println(name);
+
+            printName(name,count + 1, N);
+
+           }
