@@ -81,3 +81,5 @@ fib(2) fib(1)1  0  1  0
  / \
 1  0
 
+
+                                                                      TC will be O(2^n),  beacuse evry fib call will result in 2 function ,
