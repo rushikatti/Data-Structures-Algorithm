@@ -14,6 +14,7 @@ example;     printing the name N times
            }
 
 
+
 Example 2 :         Print the number from 1 to N                      1 to 3   , step 1 : printnum(1,3) > base condn fails > print 1 > printnum(1+1,3) 
 
                    void  PrintNum ( int current, int N ){                        step 2 :  Printnum(2,3) > base Fails > print 2 > Printnum( 2+1,3)
@@ -27,3 +28,22 @@ Example 2 :         Print the number from 1 to N                      1 to 3   ,
                                                                       TC : O(N)   >> uses the N operations
                     }
                                                                       SC : O(N)   >> store in N stacks
+
+** if you wantto print the num from N to 1, just use the
+    recursion call before the print statement ---- BACKTRACKING
+
+
+
+
+Example 3:     Print sum of n numbers
+
+public int sum(int n){
+        if(n == 1){
+            return 1;
+        }
+        
+        return n + sum(n-1);  --  this will print the sum of n and previous numbers
+        
+        
+    }
+
