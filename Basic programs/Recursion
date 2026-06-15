@@ -47,3 +47,29 @@ public int sum(int n){
         
     }
 
+
+
+example 4:              Fibonnacci
+
+
+                    fib(n) = fib(n-1) + fib(n-2)          this is the logic:
+
+
+
+           public static int fibonacci(int N) {
+        // Base case: return N if it's 0 or 1
+        if (N <= 1) {
+            return N;
+        }
+
+        // Recursive case: calculate previous two terms
+        int last = fibonacci(N - 1);    // (N-1)th term
+        int slast = fibonacci(N - 2);   // (N-2)th term
+
+        return last + slast;
+    }
+
+   for n = 4
+
+   fib(4) >>  base fails >> fib(4-1) >> base fails >> fib(3-1) >> base fails >> fib(2-1) >> base pass >> return 1 >>
+
