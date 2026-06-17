@@ -3,6 +3,13 @@
 In selection sort we need to find the min element and swap with first element in every iterations.
 
 For every iteration the array size reduces. to swap min element with the first index of current array.
+
+* Time complexity : O(n^2)
+  
+ inner loop j runs for n time for 1st iteration, n-1 for 2nd , n-2 for 3rd. 
+  so, n + n-1 + n-1...   which is nothing but summation of natural numbers  = n ( n + 1 ) / 2   = n^2/2 + n/2
+  by ignoring the smaller value and constant. the time complexity will approximately  O(n^2)
+    
 #### Algorithm :
 * Run an outer loop from i = 0 to n -1 -- no need to traverse the last element
 * intialize the minIdx variable and assigh the value i -- the first element
