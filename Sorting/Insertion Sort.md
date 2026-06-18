@@ -40,7 +40,7 @@ class InsertionSort{
         int n = nums.length;
         for(int i=1;i<n;i++){
             int key = nums[i];                                        TC : O(n²)
-            int j = i-1;                                              SC : O(1)  ,  just modifying the array.
+            int j = i-1;                                              SC : O(1)  
             while(j>=0 && nums[j]>key){
                 nums[j+1] = nums[j];
                 j--;                
@@ -54,3 +54,4 @@ class InsertionSort{
     }
 }
 ```
+* Space Complexity will be O(1), becuase we are sorting the array in place and not using any additional data structures that grow with input size.
