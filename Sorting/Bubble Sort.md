@@ -72,7 +72,7 @@ class BubbleSort {
 ```
 
 If Array is already sorted then also it take TC :  O(n²).   
-So the Optimal Solution takes O(n) for sorted input.
+So this Optimal Solution takes O(n) for sorted input.
 ``` java
 class BubbleSort {
     public void bubbleSort(int[] arr){
@@ -87,8 +87,8 @@ class BubbleSort {
                     sorted = 1;                ---------> update if swapped
                 }
             }
-            if(sorted == 0){                  -------> if nothing swapped in 1st iteration, then it is already sorted.
-                break;
+            if(sorted == 0){                  -------> if nothing swapped in 1st iteration, 
+                break;                                 then it is already sorted.
             }
         }
         for(int num : arr){
