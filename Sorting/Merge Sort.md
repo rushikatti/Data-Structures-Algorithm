@@ -5,6 +5,9 @@ Time Complexity: O(N*logN), merging two arrays take linear time and array is rec
 
 Space Complexity: O(N), we use a temporary array to store elements in sorted order.
 
+
+#### Flow :
+
 * divide :
 ```
                 [4 2 7 1 5 3]
