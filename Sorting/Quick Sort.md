@@ -77,5 +77,62 @@ Final Merge:
           [2,3,4,5,7,8]
 ```
 
-#### Code
+#### Code :
+
+```java
+
+
+class Solution {
+   
+    public void quickSort(int[] arr, int low, int high) {                            // Function to perform quicksort
+       
+        if (low < high) {                                                            // Base case
+            int pivotIndex = partition(arr, low, high);                              // Find pivot index
+
+            quickSort(arr, low, pivotIndex - 1);                                     // Sort left & right subarray 
+            quickSort(arr, pivotIndex + 1, high);
+        }
+    }
+
+    
+    private int partition(int[] arr, int low, int high) {                            // Function to partition array
+      
+        int pivot = arr[high];                                                       // Choose last element as pivot
+
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+          
+            if (arr[j] <= pivot) {                                                   // If element <= pivot, Increment i and swap
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];                                                     // Place pivot in correct position
+        arr[high] = temp;
+
+        return i + 1;                                                               // Return pivot index
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        int[] arr = {10, 7, 8, 9, 1, 5};
+  
+        Solution sol = new Solution();
+
+        sol.quickSort(arr, 0, arr.length - 1);
+        for (int num : arr)
+            System.out.print(num + " ");
+    }
+}
+
+
+```
 
