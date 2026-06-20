@@ -1,7 +1,7 @@
 ## Merge Sort :
 Merge sort divides the array recursuvely into the equal halfs untill single element found, then compare the single elements and return with sorted array.
 
-Time Complexity: O(N*logN), merging two arrays take linear time and array is recursively divided into halves (logN times).
+Time Complexity: O(N*logN), merging two arrays take linear time and array is recursively divided into halves (logN times). The exact TC will be O(n * log₂ n), becuase the array is dividing into exactly 2 halfs.
 
 Space Complexity: O(N), we use a temporary array to store elements in sorted order.
 
