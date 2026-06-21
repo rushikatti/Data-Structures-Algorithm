@@ -1,13 +1,14 @@
-* TIME COMPLEXITY :
+## TIME COMPLEXITY :
 
 - It does mean how much time a code is taking to run, it might be different in old and new computers.  Tc != Time taken.
 - Time complexity means the rate at which time taken increases with respect to the input size.
 
 
-* BIG O NOTATION:
+### BIG O NOTATION:
 
 - it is used to represent the time complexity in terms is O().
   for example:
+  ```
               for(int i = 1; i < 5; i++); {
                 System.out.println();  }
               
@@ -19,8 +20,9 @@
                 System.out.println();  }
 
         Time complexity for the above ex is O(n*3)
+  ```
 
-                                                         ** Rules **
+* Rules :
 
 - Always take the time complexity for worst case scenario,becuase it the time required to solve the complete problem. There are three cases
   worst case, Best case, Average case will be the (best + worst)/2.
@@ -39,7 +41,7 @@
 
 
 Time Complexity example :
-
+```
 1)  for(int i = 0; i<n ; i++) {
       for(int j = 0; j<n; j++) {
           System.out.print()
@@ -53,13 +55,13 @@ Time Complexity example :
   So on                      acc to the Big o natation rule --> Avoid the lower values.
 
 
-
-** SPACE COMPLEXITY :
+```
+### SPACE COMPLEXITY :
 
 - It is also represented using the BIG O notation
 - It counts two spaces
-    > Variable spaces - one for each variable
-    > Auxillary spaces - the space used to solve the problem
+    * Variable spaces - one for each variable
+    * Auxillary spaces - the space used to solve the problem
 
   example
         a = 10;
