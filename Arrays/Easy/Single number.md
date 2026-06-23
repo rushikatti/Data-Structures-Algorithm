@@ -56,6 +56,8 @@ class Solution {
     }
 ```
 
+2 ^ 2 = 0, 1 ^ 0 = 1
+
 Time Complexity: O(N). Where N is the size of the array
 
 Space Complexity: O(1). No extra space used
