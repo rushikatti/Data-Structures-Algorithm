@@ -89,5 +89,7 @@ class Solution {
     }
 }
 ```
+* Time Complexity: O(N), where N is the size of the array. The algorithm traverses the array once with two pointers, making it linear in time complexity.
 
+* Space Complexity: O(1), as it uses a constant amount of space.
 
