@@ -59,11 +59,11 @@ class Solution {
 
 ## Key Points
 
-### Why reset to `1`?
+#### Why reset to `1`?
 
 The current element starts a new subarray.
 
-### Why start from `i = 1`?
+#### Why start from `i = 1`?
 
 To safely compare `nums[i]` with `nums[i-1]`.
 
