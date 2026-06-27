@@ -42,7 +42,84 @@ class Solution {
 
 * Space Complexity: O(1), as we are using a constant amount of space for variables and not using any additional data structures that grow with input size.
 
-#### Optimal Solution :
+#### Better Solution : 
+# Longest Subarray with Sum = K (Optimal)
+
+## Data Structure
+
+* **HashMap<Integer, Integer>**
+
+  * **Key** → Prefix Sum
+  * **Value** → First index of that prefix sum
+
+---
+
+## Logic
+
+* Calculate the running prefix sum.
+* If `sum == k`, the subarray from index `0` to `i` has sum `k`.
+* Check if `sum - k` exists in the map.
+* If it exists, update the maximum length.
+* Store the prefix sum only if it is not already present.
+
+---
+
+## Java Code
+
+```java
+HashMap<Integer, Integer> map = new HashMap<>();
+
+int sum = 0;
+int maxLength = 0;
+
+for (int i = 0; i < arr.length; i++) {
+
+    sum += arr[i];
+
+    if (sum == k) {
+        maxLength = i + 1;
+    }
+
+    if (map.containsKey(sum - k)) {
+        maxLength = Math.max(maxLength, i - map.get(sum - k));
+    }
+
+    if (!map.containsKey(sum)) {
+        map.put(sum, i);
+    }
+}
+
+return maxLength;
+```
+
+---
+
+### Complexity
+
+* **Time:** `O(n)`
+* **Space:** `O(n)`
+
+---
+
+#### Quick Notes
+
+**Why `sum == k`?**
+→ Subarray from index `0` to `i` has sum `k`.
+
+**Why `sum - k`?**
+→ `Current Prefix Sum - Previous Prefix Sum = k`.
+
+**Why store only the first occurrence?**
+→ It gives the longest possible subarray.
+
+**For Sum = 0:**
+→ Check `sum == 0` and `map.containsKey(sum)`.
+
+**For Sum = K:**
+→ Check `sum == k` and `map.containsKey(sum - k)`.
+
+
+## Optimal Solution :
 
 * useing the left and right pointer, and calculation the sum
 
