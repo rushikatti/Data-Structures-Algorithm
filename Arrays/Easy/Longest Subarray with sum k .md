@@ -1,4 +1,4 @@
-### Longest subarray with sum k :
+## Longest subarray with sum k :
 
 #### Bruteforce :
 ```
@@ -42,10 +42,9 @@ class Solution {
 
 * Space Complexity: O(1), as we are using a constant amount of space for variables and not using any additional data structures that grow with input size.
 
-#### Better Solution : 
-# Longest Subarray with Sum = K (Optimal)
+## Better Solution : 
 
-## Data Structure
+#### Data Structure
 
 * **HashMap<Integer, Integer>**
 
@@ -54,7 +53,7 @@ class Solution {
 
 ---
 
-## Logic
+### Logic
 
 * Calculate the running prefix sum.
 * If `sum == k`, the subarray from index `0` to `i` has sum `k`.
@@ -64,7 +63,7 @@ class Solution {
 
 ---
 
-## Java Code
+### Java Code
 
 ```java
 HashMap<Integer, Integer> map = new HashMap<>();
