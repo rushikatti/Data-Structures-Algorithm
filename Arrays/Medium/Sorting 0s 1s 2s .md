@@ -61,11 +61,19 @@ Instead of while loop with index pointer.  use for loops with i pointer
         for(int i=0;i<count0;i++){
             nums[i] = 0;
         }
-        for(int i=count0;i<count0+count1;i++){
+        for(int i=count0; i<count0 + count1 ;i++){
             nums[i] = 1;
         }
-        for(int i=count1; i<nums.length; i++){
+        for(int i=count0 + count1; i<nums.length; i++){
             nums[i] = 2;
         }
 ```
 
+## Optimal solution -   Dutch National Flag algorithm.
+
+Here instead of counting the 0 1 2 , will intialise the 3 pointers low, mid, high.  
+
+* Intialise the pointer low & mid = 0, high = n -1.
+* if nums[mid] == 0 , then swap with the nums[low] and increament the both.
+* if nums[mid] == 1,  just move mid++,  there are already in place.
+* else swap with low, move mid++ and high--.
