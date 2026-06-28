@@ -53,4 +53,19 @@ class Solution {
 }
 ```
 
+## Better Solution :
+
+Instead of while loop with index pointer.  use for loops with i pointer
+``` java
+
+        for(int i=0;i<count0;i++){
+            nums[i] = 0;
+        }
+        for(int i=count0;i<count0+count1;i++){
+            nums[i] = 1;
+        }
+        for(int i=count1; i<nums.length; i++){
+            nums[i] = 2;
+        }
+```
 
