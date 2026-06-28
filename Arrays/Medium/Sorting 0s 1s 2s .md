@@ -77,3 +77,35 @@ Here instead of counting the 0 1 2 , will intialise the 3 pointers low, mid, hig
 * if nums[mid] == 0 , then swap with the nums[low] and increament the both.
 * if nums[mid] == 1,  just move mid++,  there are already in place.
 * else swap with low, move mid++ and high--.
+
+```java
+int low = 0, mid = 0, high = nums.length -1;
+
+        while(mid <= high){
+            if(nums[mid]==0){
+                int temp = nums[mid];
+                nums[mid] = nums[low];
+                nums[low] = temp;
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1){
+                mid++;
+            }
+            else{
+                int temp = nums[mid];
+                nums[mid] = nums[high];        
+                nums[high] = temp;                 --> we should increament the mid here, because we don know
+                high--;                                what value come from high after the swapping.
+
+            }
+        }
+```
+
+
+## Complexities :
+
+* Time Complexity :  O(n)
+* Space Complexity : O(1),  using the constant spaces for the counters.
+
+These are same for all 3 approaches.
