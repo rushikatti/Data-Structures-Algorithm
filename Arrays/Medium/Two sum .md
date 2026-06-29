@@ -40,7 +40,7 @@ class Solution {
 * space Complexity : O(1)
 
 
-## Better Solution :
+## Better Solution :           optimal solution for variety 2 returning the indexex.
 
 Instead of checking all the conbinations for each element , we can store the elements with index in hashmap.
 if target - nums[i] is found in the map, then nums[i] + map[need] == target, return their index.
@@ -79,5 +79,58 @@ class Solution {
 
 * time complexity : O(n * log N)         HashMap takes log n look up time
 * space complexity : O(n)     storing every element in map
+
+## optimal Solution for the variety one, return true or false :
+
+we can sort the array and Use TWO POINTER to compare.
+
+### algorithm :
+
+* sort the array
+* initialise the left right variables
+* while(left<right) ,  sum = nums[left] + nums[right] == target ,
+* if( sum == target)  return true
+* if sum < target   , left++
+* if sum > target   , right--
+* return false.
+
+### code :
+
+```java
+
+import java.util.Arrays;
+
+class Solution {
+    public boolean twoSum(int[] nums, int target) {
+
+        Arrays.sort(nums);
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+
+            int sum = nums[left] + nums[right];
+
+            if (sum == target) {
+                return true;
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+### complexity
+
+* Time complexity :  o(n) + o(n log n)  for sorting
+* space complexity :  o(1)
+
+
   
 
