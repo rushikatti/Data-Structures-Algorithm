@@ -77,7 +77,7 @@ class Solution {
 
 ### complexity :
 
-* time complexity : O(n)
-* space complexity : O(1)
+* time complexity : O(n * log N)         HashMap takes log n look up time
+* space complexity : O(n)     storing every element in map
   
 
