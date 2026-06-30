@@ -73,7 +73,7 @@ class Solution {
 
 ### complexity :
 
-* Time complexity : O(N) + O(N log N)
+* Time complexity : O(N) + O(N log N),      n logn for tarverse the array and store in map,  o(n) to traverse the map.
 * space complexity : O(N)
 
 
