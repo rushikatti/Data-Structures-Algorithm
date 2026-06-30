@@ -43,6 +43,7 @@ class Solution {
 Use HashMap , store the frequency of elements , traverse the map to find value > n / 2.
 
 ### algorithm :
+
 * Initialise the HashMap
 * Run the loop and count frequency of each element
 * traverse the map   Map.Entry<Integer,Integer> entry = new entrySet()
