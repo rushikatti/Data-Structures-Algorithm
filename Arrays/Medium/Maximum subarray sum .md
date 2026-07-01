@@ -42,4 +42,46 @@ class Solution {
 
 * Time complexity :  O(n^3)
 * Space complexity : O(1)
-* 
+  
+
+## Better Solution :
+
+instead of 3 loops, we can use 2 loop and count the sum in the second loop and make the solution in O(n^2).
+
+### algorithm :
+
+* Run outer loop i
+* intialise the sum variable
+* run inner loop j and add the sum += nums[j].
+* return the maxSum.
+
+### code :
+
+```java
+class Solution {
+    
+    public int maxSubArray(int[] nums) {
+        int maxi = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            
+            int sum = 0; 
+
+            for (int j = i; j < nums.length; j++) {
+                sum += nums[j];
+                maxi = Math.max(maxi, sum);
+            }
+        }
+        return maxi;
+    }
+}
+```
+
+### Complexity :
+
+* Time complexity :  O(n^2)
+* Space complexity : O(1)
+  
+
+
+
