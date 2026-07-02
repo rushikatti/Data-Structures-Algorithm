@@ -45,3 +45,16 @@ class Solution {
 
 * Time complexity : O(n) + O(n) --> O(2n)
 * space complexity : o(n)
+
+
+## Optimal solution :
+
+### algorithm :
+
+* initialise the arr
+*initialise the index variables positive = 0 and negative = 1.
+* traverse the arr, if(nums[i] > 0 ) --> arr[positive] = nums[i]; positive += 2
+* if(nums[i]<0)  arr[negative] = nums[i], neagtive +=2.
+* return the arr.
+
+
