@@ -44,3 +44,4 @@ class Solution {
 ### complexity :
 
 * Time complexity : O(n) + O(n) --> O(2n)
+* space complexity : o(n)
