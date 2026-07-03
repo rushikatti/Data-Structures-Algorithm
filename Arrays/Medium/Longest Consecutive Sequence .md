@@ -119,6 +119,8 @@ class Solution {
 
 
 
+
+
 ## Optimal Solution :
 
 ### Algorithm :
@@ -129,4 +131,45 @@ class Solution {
 * inside the if condition while(set.contains(x+1))  count +=1, x += 1
 * return the longest
 
-* 
+### code :
+
+```java
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        if(nums.length ==0){
+            return 0;
+        }
+
+        int longest = 1;
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int i=0;i<nums.length;i++){
+            set.add(nums[i]);
+
+        }
+
+        for(int num : set){
+
+            if(!set.contains(num-1)){
+            int count = 1;
+
+            int x = num;
+
+            while(set.contains(x+1)){
+                x += 1;
+                count +=1 ;
+            }
+            longest = Math.max(longest,count);
+            }           
+        }
+        return longest;
+    }
+}
+```
+
+
+### complexity :
+
+* time complexity : O(3n)
+* space complexity : o(n)
