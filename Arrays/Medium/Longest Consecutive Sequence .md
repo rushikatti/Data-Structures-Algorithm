@@ -116,3 +116,17 @@ class Solution {
 
 * Time complexity : o(n log n) + o(n)
 * space complexity ; o(1)
+
+
+
+## Optimal Solution :
+
+### Algorithm :
+
+* initalise the Hashset and store every element in the arr.
+* trverse the Hashset and check if previous element is exist, if exist current element is not the starting element
+* if !Set.conatins(num - 1) , then intilais the count = 1 and x = num
+* inside the if condition while(set.contains(x+1))  count +=1, x += 1
+* return the longest
+
+* 
