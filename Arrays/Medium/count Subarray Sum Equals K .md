@@ -100,7 +100,7 @@ class Solution {
 
 ### Complexity :
 
-* time complexity : o(n)
+* time complexity : o(n log n)
 * space complexity : o(n)
 
 
