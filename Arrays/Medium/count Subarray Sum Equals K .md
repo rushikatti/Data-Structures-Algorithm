@@ -25,6 +25,11 @@ class Solution {
 }
 ```
 
+### Complexity :
+
+* time complexity : o(n^3)
+* space complexity : o(1)
+
 ## Better approach 
 
 ### code :
@@ -46,6 +51,13 @@ class Solution {
     }
 }
 ```
+
+
+### Complexity :
+
+* time complexity : o(n^2)
+* space complexity : o(1)
+
 
 
 
