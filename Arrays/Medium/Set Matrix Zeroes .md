@@ -101,4 +101,4 @@ class Solution {
 ### complexity :
 
 * Time complexity :  (n*m) + (n*m)  ,  someware around n2
-* space complexity :  o(1)
+* space complexity :  o(n) + o(m)
