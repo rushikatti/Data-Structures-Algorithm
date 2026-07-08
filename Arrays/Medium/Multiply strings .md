@@ -13,3 +13,8 @@ long n2 = Long.parseLong(num2);
 return String.valueOf(n1 * n2);
 ```
 
+### complexity :
+
+* time complexity : o(n + m)
+* space complexity : o(1)
+  
