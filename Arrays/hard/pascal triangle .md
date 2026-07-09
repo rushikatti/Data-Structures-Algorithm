@@ -88,4 +88,69 @@ class Solution {
 * space complexity = O(n^2)
 
 
+## Problem 3 :
+
+* the question will give the RowNum , we have print that row.
+
+### solution :
+
+there is two solutions 
+
+1)
+  * print entire pascal upto rowNUm.
+  * return the rownum , return ans.get(rowNum)
+
+```
+** Complexity :
+    * Time complexity = o(n^2)
+    * space complexity = O(n^2)
+```
+  
+
+2)   
+   optimal approach ncr
+
+* Create an empty list `ans` to store the required row.
+*  Initialize the first element as `1` and add it to the list.
+* Observe that every element in the row is an **nCr** value.
+* Instead of computing factorials, calculate each next element from the previous one using:
+
+   ```
+   next = current × (rowIndex - i) / (i + 1)
+   ```
+
+* Repeat this process until all elements of the row are generated.
+* Return the list containing the required row.
+
+### code :
+
+```java
+class Solution {
+    public List<Integer> getRow(int rowIndex) {
+       
+       List<Integer> ans = new ArrayList<>();
+
+       long current = 1;
+
+       ans.add(1);
+
+       for(int i=0;i<rowIndex;i++){
+        current = current * (rowIndex-i);
+        current = current / (i+1);
+        ans.add((int) current);
+       }
+       return ans;
+    }
+}
+        
+```
+
+### Complexity :
+
+* Time complexity : O(n)
+* space complexity : O(1)
+
+
+
+
 
