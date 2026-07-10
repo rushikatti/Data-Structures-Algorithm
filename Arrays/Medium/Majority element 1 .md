@@ -12,6 +12,23 @@ The majority element is the element that appears more than ⌊n / 2⌋ times. Yo
 * if nums[i]==nums[j] , count++
 * after 1 iteration,  if(count > n/2)  return nums[i].
 
+
+## Optimal Solution :
+
+** Moors mayer Algorithm. **
+```
+* Initialize four variables: cnt1 and cnt2 for tracking the counts of elements, and el1 and el2 for storing the potential majority elements.
+*Traverse through the given array:
+    If cnt1 is 0 and the current element is not equal to el2, set el1 to the current element and increment cnt1 by 1.
+    If cnt2 is 0 and the current element is not equal to el1, set el2 to the current element and increment cnt2 by 1.
+    If the current element is equal to el1, increment cnt1 by 1.
+    If the current element is equal to el2, increment cnt2 by 1.
+
+*In all other cases, decrease cnt1 and cnt2 by 1.
+*After processing all elements, el1 and el2 should be the candidate elements for majority. To confirm:
+*Use another loop to manually check the counts of el1 and el2 in the array.
+    If either el1 or el2's count is greater than floor(N/3), it is considered a valid majority element.
+```
 ### code :
 ```java
 class Solution {
@@ -131,4 +148,61 @@ class Solution {
 ### Complexity :
 
 * Time complexity : O(n)
+* space complexity : O(1)
+
+
+### Optimal code :
+
+```java
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+
+    int count1 = 0;
+    int element1 = Integer.MIN_VALUE;
+
+    int count2 = 0;
+    int element2 = Integer.MIN_VALUE;
+
+    for(int i=0;i<nums.length;i++){
+        if(count1 == 0 && nums[i] != element2){
+            count1 =1;
+            element1 = nums[i];
+        }
+        else if(count2 == 0 && nums[i] != element1){
+            count2=1;
+            element2 = nums[i];
+        }
+        else if(nums[i] == element1){
+            count1++;
+        }
+        else if(nums[i] == element2){
+            count2++;
+        }
+        else{
+            count1--;
+            count2--;
+        }
+    }
+
+    int cnt1 =0, cnt2=0;
+
+    for(int i=0;i<nums.length;i++){
+        if(nums[i] == element1) cnt1++;
+       if(nums[i] == element2) cnt2++;
+    }
+
+    int min = (nums.length / 3) + 1;
+    List<Integer> ans = new ArrayList<>();
+    if(cnt1 >= min) ans.add(element1);
+    if(cnt2 >= min && element1 != element2) ans.add(element2);
+
+    return ans;
+
+    }
+}
+```
+
+### Complexity :
+
+* time complexity : O(2n)
 * space complexity : O(1)
