@@ -9,6 +9,14 @@
 * return new ArrayList<>(Set).
 
 
+## Better Solution :
+
+* run two loops, i with 0, j with i+1
+* calculate third element = -(nums[i] + nums[j]),
+* check  third in  HASHSET if found , add i , j, third to temp LIST , and sort it before adding to Set.
+* eturn new ArrayList<>(Set).
+
+
 
 ### Bruteforce code :
 
@@ -42,3 +50,43 @@ class Solution {
 
 * Time : O(n^3 * log( No of triplets) )
 * space : O(2 * no of triplets)            --> storing the set and List.
+
+
+### Better Solution code :
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+    
+
+    Set<List<Integer>> ans = new HashSet<>();
+      
+        int n = nums.length;
+        for(int i=0;i<n;i++){
+            Set<Integer> hashset = new HashSet<>();
+            for(int j=i+1;j<n;j++){
+
+                int third = -(nums[i]+nums[j]);
+
+                if(hashset.contains(third)){
+                    List<Integer> temp = Arrays.asList(nums[i],nums[j],third);
+                    Collections.sort(temp);
+                    ans.add(temp);
+
+                }
+            hashset.add(nums[j]);
+            }
+        }
+        return new ArrayList<>(ans);        
+    }
+}
+        
+
+```
+
+### complexity :
+
+* time : O( n ^2 + log( num pf triplets))
+* space : O( 2 * no of unique triplets )
+
+  
