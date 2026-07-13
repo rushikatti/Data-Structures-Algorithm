@@ -1,1 +1,52 @@
+# LeetCode 56 - Merge Intervals
 
+## Approach 1: Brute Force
+
+1. Sort the intervals based on their starting time.
+2. Traverse each interval one by one.
+3. For every interval, compare it with the following intervals.
+4. If the next interval overlaps (`nextStart <= currentEnd`), merge them by updating the ending time.
+5. Continue merging until there is no overlap.
+6. Add the merged interval to the answer.
+7. Repeat the process for all remaining intervals.
+
+###  Complexity :
+
+* time :
+- O(n log n) for sorting
+- O(n) for traversal
+- Overall: O(n log n)
+
+* Space Complexity :  O(n) (for storing the merged intervals)
+ 
+
+
+# Approach 2: Optimal (Single Pass)
+
+### Idea
+1. Sort the intervals based on their starting time.
+2. Create an empty list to store the merged intervals.
+3. Traverse the sorted intervals.
+4. If the answer list is empty or the current interval does not overlap with the last merged interval, add it directly.
+5. Otherwise, merge the intervals by updating the ending time of the last interval to the maximum ending value.
+6. Continue until all intervals are processed.
+7. Return the merged intervals.
+
+### Time Complexity
+- **O(n log n)** for sorting
+- **O(n)** for single traversal
+- **Overall:** `O(n log n)`
+
+### Space Complexity
+- **O(n)** (for storing the merged intervals)
+
+---
+
+## Difference Between the Two Approaches
+
+| Brute Force | Optimal |
+|-------------|---------|
+| Explicitly checks and merges consecutive overlapping intervals using nested progression. | Maintains the last merged interval and updates it whenever an overlap occurs. |
+| Slightly more complex due to nested merging logic. | Simpler and more intuitive after sorting. |
+| O(n log n) overall. | O(n log n) overall. |
+| Good for understanding the merging process. | Preferred in interviews and production code. |
