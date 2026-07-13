@@ -10,20 +10,9 @@
 6. Add the merged interval to the answer.
 7. Repeat the process for all remaining intervals.
 
-###  Complexity :
-
-* time :
-- O(n log n) for sorting
-- O(n) for traversal
-- Overall: O(n log n)
-
-* Space Complexity :  O(n) (for storing the merged intervals)
- 
-
 
 # Approach 2: Optimal (Single Pass)
 
-### Idea
 1. Sort the intervals based on their starting time.
 2. Create an empty list to store the merged intervals.
 3. Traverse the sorted intervals.
@@ -32,13 +21,81 @@
 6. Continue until all intervals are processed.
 7. Return the merged intervals.
 
-### Time Complexity
-- **O(n log n)** for sorting
-- **O(n)** for single traversal
-- **Overall:** `O(n log n)`
+### Bruetforce code :
 
-### Space Complexity
-- **O(n)** (for storing the merged intervals)
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        
+        Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
+
+  
+        List<int[]> ans = new ArrayList<>();
+      
+        for(int[] interval : intervals){
+            if(ans.isEmpty() || ans.get(ans.size()-1).get(1) < interval[0]){
+                ans.add(Arrays.asList(interval[0],interval[1]));
+            }
+            else{
+                int last = ans.size()-1;
+                int maxEnd = Math.max(ans.get(last).get(1),interval[1]);
+                ans.get(last).set(1,maxEnd);
+            }
+
+        }
+
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
+###  Complexity :
+
+* time :
+- O(n log n) for sorting
+- O(n) for traversal
+- Overall: O(n log n)
+
+* Space Complexity :  O(n) (for storing the merged intervals)
+
+### Optimal code :
+
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        
+        Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
+
+  
+        List<int[]> ans = new ArrayList<>();
+      
+        for(int[] interval : intervals){
+            if(ans.isEmpty() || ans.get(ans.size()-1)[1] < interval[0]){
+                ans.add(new int[]{interval[0], interval[1]});
+            }
+            else{
+                int last = ans.size() - 1;
+                ans.get(last)[1] = Math.max(ans.get(last)[1], interval[1]);
+            }
+
+        }
+
+       return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
+
+
+
+
+### Complexity
+
+* time complexity :
+- O(n log n) for sorting
+- O(n) for single traversal
+- Overall: O(n log n)
+
+* Space Complexity - O(n) (for storing the merged intervals)
+
 
 ---
 
