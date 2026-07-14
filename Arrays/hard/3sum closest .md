@@ -3,9 +3,9 @@
 
 ---
 
-# 1. Brute Force
+## 1. Brute Force
 
-## Approach
+### Approach
 
 1. Initialize the closest sum using the first three elements.
 2. Generate all possible triplets using three nested loops.
@@ -14,7 +14,7 @@
 5. If the current sum is closer to the target than the previous closest sum, update the answer.
 6. Return the closest sum.
 
-## Java Code
+### Code
 
 ```java
 class Solution {
@@ -41,14 +41,14 @@ class Solution {
 }
 ```
 
-## Complexity
+### Complexity
 
 - **Time Complexity:** `O(n³)`
 - **Space Complexity:** `O(1)`
 
 ---
 
-# 2. Better Approach
+## 2. Better Approach
 
 **No standard better solution exists for this problem.**
 
@@ -56,9 +56,9 @@ The optimal solution directly improves the brute-force approach from **O(n³)** 
 
 ---
 
-# 3. Optimal Approach (Sorting + Two Pointers)
+## 3. Optimal Approach (Sorting + Two Pointers)
 
-## Approach
+### Approach
 
 1. Sort the array.
 2. Initialize the closest sum using the first three elements.
@@ -71,7 +71,7 @@ The optimal solution directly improves the brute-force approach from **O(n³)** 
 9. If the sum equals the target, return it immediately.
 10. Return the closest sum after all iterations.
 
-## Java Code
+### Code
 
 ```java
 class Solution {
@@ -110,7 +110,7 @@ class Solution {
 }
 ```
 
-## Complexity
+### Complexity
 
 - **Time Complexity:** `O(n²)`
 - **Space Complexity:** `O(1)`
