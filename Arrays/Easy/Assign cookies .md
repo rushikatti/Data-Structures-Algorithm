@@ -37,8 +37,8 @@ class Solution {
 
 ### Complexity
 
-- **Time:** O(n × m)
-- **Space:** O(n)
+- Time: O(n × m)
+- Space: O(n)
 
 ---
 
@@ -78,8 +78,8 @@ class Solution {
 
 ### Complexity
 
-- **Time:** O(n log n + m log m)
-- **Space:** O(1)
+- Time: O(n log n + m log m)
+- Space: O(1)
 
 ---
 
@@ -125,5 +125,5 @@ class Solution {
 
 ### Complexity
 
-- **Time:** O(n log n + m log m)
-- **Space:** O(1)
+- Time: O(n log n + m log m)
+- Space: O(1)
