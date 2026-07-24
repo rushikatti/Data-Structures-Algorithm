@@ -22,9 +22,9 @@ Although this is called brute force, each element is still visited only once bec
 2. Let `start = nums[i]`.
 3. Move `j` while:
 
-```
+
 nums[j + 1] == nums[j] + 1
-```
+
 
 4. If
 
