@@ -1,0 +1,182 @@
+# 611. Valid Triangle Number
+
+## Solution Approach 1: Brute Force
+
+### Algorithm
+
+1. Initialize `count = 0`.
+2. Use three nested loops to generate every possible triplet.
+3. For each triplet `(a, b, c)`, check the triangle inequality:
+   - `a + b > c`
+   - `a + c > b`
+   - `b + c > a`
+4. If all three conditions are satisfied, increment the count.
+5. Return the final count.
+
+### Code
+
+```java
+class Solution {
+    public int triangleNumber(int[] nums) {
+
+        int n = nums.length;
+        int count = 0;
+
+        for (int i = 0; i < n - 2; i++) {
+
+            for (int j = i + 1; j < n - 1; j++) {
+
+                for (int k = j + 1; k < n; k++) {
+
+                    int a = nums[i];
+                    int b = nums[j];
+                    int c = nums[k];
+
+                    if (a + b > c &&
+                        a + c > b &&
+                        b + c > a) {
+
+                        count++;
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```
+
+### Complexity
+
+- **Time:** `O(n³)`
+- **Space:** `O(1)`
+
+---
+
+## Solution Approach 2: Better (Binary Search)
+
+### Algorithm
+
+1. Sort the array.
+2. Fix the first two sides using two loops.
+3. For each pair `(i, j)`, use binary search to find the first index where:
+   ```
+   nums[k] >= nums[i] + nums[j]
+   ```
+4. All elements before that index (after `j`) form valid triangles.
+5. Add the count of valid third sides.
+6. Return the total count.
+
+### Code
+
+```java
+class Solution {
+    public int triangleNumber(int[] nums) {
+
+        Arrays.sort(nums);
+
+        int n = nums.length;
+        int count = 0;
+
+        for (int i = 0; i < n - 2; i++) {
+
+            if (nums[i] == 0)
+                continue;
+
+            for (int j = i + 1; j < n - 1; j++) {
+
+                int left = j + 1;
+                int right = n - 1;
+                int ans = n;
+
+                while (left <= right) {
+
+                    int mid = left + (right - left) / 2;
+
+                    if (nums[mid] >= nums[i] + nums[j]) {
+                        ans = mid;
+                        right = mid - 1;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+
+                count += ans - j - 1;
+            }
+        }
+
+        return count;
+    }
+}
+```
+
+### Complexity
+
+- **Time:** `O(n² log n)`
+- **Space:** `O(1)`
+
+---
+
+## Solution Approach 3: Optimal (Sorting + Two Pointers)
+
+### Algorithm
+
+1. Sort the array.
+2. Fix the largest side `k` from the end of the array.
+3. Initialize:
+   - `left = 0`
+   - `right = k - 1`
+4. While `left < right`:
+   - If
+     ```
+     nums[left] + nums[right] > nums[k]
+     ```
+     then every element between `left` and `right` forms a valid triangle with `nums[right]` and `nums[k]`.
+     Add:
+     ```
+     right - left
+     ```
+     to the answer and decrement `right`.
+   - Otherwise, increment `left`.
+5. Return the total count.
+
+### Code
+
+```java
+class Solution {
+    public int triangleNumber(int[] nums) {
+
+        Arrays.sort(nums);
+
+        int n = nums.length;
+        int count = 0;
+
+        for (int k = n - 1; k >= 2; k--) {
+
+            int left = 0;
+            int right = k - 1;
+
+            while (left < right) {
+
+                if (nums[left] + nums[right] > nums[k]) {
+
+                    count += right - left;
+                    right--;
+                }
+                else {
+
+                    left++;
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```
+
+### Complexity
+
+- **Time:** `O(n²)`
+- **Space:** `O(1)`
