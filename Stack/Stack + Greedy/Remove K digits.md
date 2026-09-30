@@ -146,6 +146,45 @@ Maintain a **monotonically increasing sequence**
 
 ---
 
+
+### Solution
+
+
+---java
+class Solution {
+    public String removeKdigits(String num, int k) {
+       StringBuilder sb = new StringBuilder();
+
+       for(int i=0; i<num.length(); i++){
+
+        while(!sb.isEmpty() && sb.charAt(sb.length()-1) > num.charAt(i) && k > 0){
+            sb.deleteCharAt(sb.length()-1);
+            k--;
+        }
+        
+        if(sb.length() > 0 || num.charAt(i) != '0'){
+            sb.append(num.charAt(i));
+        }
+
+
+       } 
+
+       while(k > 0 && sb.length() > 0){
+        sb.deleteCharAt(sb.length()-1);
+        k--;
+       }
+
+       if(sb.length() == 0){
+        return "0";
+       }
+
+       return sb.toString();
+    }
+}
+---
+
+* time complexity is O(2N), space O(n)
+
 # 🧪 Example
 
     num = "1432219", k = 3
