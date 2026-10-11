@@ -150,6 +150,60 @@ Return `arr[n]`.
 - **Time:** O(n)
 - **Space:** O(n)
 
+  # House Robber — Space Optimized DP (Bottom-Up)
+
+
+
+## Approach: Space Optimized Dynamic Programming
+
+
+### Algorithm
+
+1. If there is only one house, return `nums[0]`.
+2. Initialize `prevprev = 0` and `prev = nums[0]`.
+3. Iterate through the houses from `i = 2` to `n`.
+4. Calculate:
+   - `steal = nums[i - 1] + prevprev`
+   - `skip = prev`
+5. Store the maximum of `steal` and `skip` in a temporary variable.
+6. Update `prevprev = prev` and `prev = temp`.
+7. Return `prev`.
+
+### Code
+
+    class Solution {
+        public int rob(int[] nums) {
+            int n = nums.length;
+
+            if (n == 1) {
+                return nums[0];
+            }
+
+            int prevprev = 0;
+            int prev = nums[0];
+
+            for (int i = 2; i <= n; i++) {
+                int steal = nums[i - 1] + prevprev;
+                int skip = prev;
+
+                int temp = Math.max(steal, skip);
+
+                prevprev = prev;
+                prev = temp;
+            }
+
+            return prev;
+        }
+    }
+
+### Complexity
+
+- **Time Complexity:** `O(n)` — Each house is processed once.
+- **Space Complexity:** `O(1)` — Only a constant number of variables are used.
+
+
+
+
 
 ---
 
