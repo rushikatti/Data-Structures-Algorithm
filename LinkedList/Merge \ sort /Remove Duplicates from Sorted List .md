@@ -22,6 +22,206 @@ Example 2:
 
 ---
 
+# LeetCode 83: Remove Duplicates from Sorted List
+
+## Problem
+
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
+
+Return the linked list sorted as well.
+
+- The linked list is sorted in non-decreasing order.
+- Keep only one occurrence of each value.
+- Rearrange node connections to remove duplicates.
+
+Example 1:
+
+    Input:  head = [1,1,2]
+    Output: [1,2]
+
+Example 2:
+
+    Input:  head = [1,1,2,3,3]
+    Output: [1,2,3]
+
+---
+
+## Approach 1: Brute Force — Using ArrayList
+
+### Idea
+
+Store all unique elements in an ArrayList and then update the original linked list using those elements.
+
+- `list`: Stores unique values.
+- `cur`: Traverses the original linked list.
+- Check the last stored element before adding a new value because the list is sorted.
+
+### Algorithm
+
+1. Create an empty ArrayList.
+2. Traverse the linked list using `cur`.
+3. For each node:
+   - If the ArrayList is empty or its last element is different from `cur.val`, add the value.
+   - Otherwise, skip the duplicate.
+4. Traverse the original linked list again.
+5. Update each node's value using the ArrayList.
+6. Disconnect the remaining nodes by setting the last node's `next` to null.
+7. Return head.
+
+### Code (Java)
+
+    class Solution {
+        public ListNode deleteDuplicates(ListNode head) {
+
+            if (head == null) {
+                return head;
+            }
+
+            ArrayList<Integer> list = new ArrayList<>();
+
+            ListNode cur = head;
+
+            while (cur != null) {
+
+                if (list.isEmpty() || list.get(list.size() - 1) != cur.val) {
+                    list.add(cur.val);
+                }
+
+                cur = cur.next;
+            }
+
+            cur = head;
+            int idx = 0;
+
+            while (idx < list.size()) {
+                cur.val = list.get(idx++);
+                if (idx == list.size()) {
+                    cur.next = null;
+                } else {
+                    cur = cur.next;
+                }
+            }
+
+            return head;
+        }
+    }
+
+### Dry Run
+
+Input:
+
+    1 → 1 → 2 → 3 → 3
+
+Initially:
+
+    list = []
+
+**Iteration 1:**
+
+    cur.val = 1
+    list = [1]
+
+**Iteration 2:**
+
+    cur.val = 1
+    Duplicate found. Skip.
+
+**Iteration 3:**
+
+    cur.val = 2
+    list = [1, 2]
+
+**Iteration 4:**
+
+    cur.val = 3
+    list = [1, 2, 3]
+
+**Iteration 5:**
+
+    cur.val = 3
+    Duplicate found. Skip.
+
+Update the original linked list:
+
+    1 → 2 → 3
+
+Final result:
+
+    1 → 2 → 3
+
+### Complexity
+
+- **Time:** O(n) — traversing the list twice.
+- **Space:** O(n) — ArrayList stores unique elements.
+
+---
+
+## Approach 2: Optimal — Two Pointers
+
+### Idea
+
+Since the linked list is already sorted, duplicate values will always be next to each other.
+
+Compare the current node with the next node and skip duplicates by changing the links.
+
+- `cur`: Traverses the linked list.
+- If `cur.val == cur.next.val`, skip the next node.
+- Otherwise, move `cur` forward.
+
+### Algorithm
+
+1. Initialize `cur = head`.
+2. Traverse while `cur != null` and `cur.next != null`.
+3. Compare the current node with the next node.
+4. If both values are equal:
+   - Skip the duplicate using `cur.next = cur.next.next`.
+5. Otherwise, move `cur` to the next node.
+6. Return head.
+
+### Code (Java)
+
+    class Solution {
+        public ListNode deleteDuplicates(ListNode head) {
+
+            ListNode cur = head;
+
+            while (cur != null && cur.next != null) {
+
+                if (cur.val == cur.next.val) {
+                    cur.next = cur.next.next;
+                } else {
+                    cur = cur.next;
+                }
+            }
+
+            return head;
+        }
+    }
+
+
+
+### Complexity
+
+- **Time:** O(n) — each node is visited at most once.
+- **Space:** O(1) — only one pointer is used.
+
+---
+
+## Comparison
+
+| Feature | ArrayList | Two Pointers |
+|---|---|---|
+| Technique | Store unique values | Adjacent comparison |
+| Time | O(n) | O(n) |
+| Space | O(n) | O(1) |
+| Requires sorted list | Yes (for this implementation) | Yes |
+| Modifies node values | Yes | No |
+| Recommended | Beginner-friendly | Interview optimal |
+
+---
+
+
+
 ## Approach 1: Brute Force — Using HashSet
 
 ### Idea
@@ -75,55 +275,7 @@ If the current value already exists in the set, skip that node. Otherwise, add i
         }
     }
 
-### Dry Run
 
-Input:
-
-    1 → 1 → 2 → 3 → 3
-
-Initially:
-
-    set = {}
-    prev = dummy
-    cur = 1
-
-**Iteration 1:**
-
-    1 is not present in set.
-    Add 1 to set.
-    Move prev to 1.
-
-    set = {1}
-
-**Iteration 2:**
-
-    1 already exists in set.
-    Skip the duplicate node.
-
-    1 → 2 → 3 → 3
-
-**Iteration 3:**
-
-    2 is not present.
-    Add 2 to set.
-
-    set = {1, 2}
-
-**Iteration 4:**
-
-    3 is not present.
-    Add 3 to set.
-
-    set = {1, 2, 3}
-
-**Iteration 5:**
-
-    3 already exists.
-    Skip the duplicate node.
-
-Final result:
-
-    1 → 2 → 3
 
 ### Complexity
 
@@ -174,59 +326,7 @@ We only need to compare the current node with the next node.
         }
     }
 
-### Dry Run
 
-Input:
-
-    1 → 1 → 2 → 3 → 3
-
-Initially:
-
-    cur = 1
-
-**Iteration 1:**
-
-    cur.val = 1
-    cur.next.val = 1
-
-    Both are equal.
-    Skip the duplicate.
-
-    1 → 2 → 3 → 3
-
-**Iteration 2:**
-
-    cur.val = 1
-    cur.next.val = 2
-
-    Not equal.
-    Move cur forward.
-
-    cur = 2
-
-**Iteration 3:**
-
-    cur.val = 2
-    cur.next.val = 3
-
-    Not equal.
-    Move cur forward.
-
-    cur = 3
-
-**Iteration 4:**
-
-    cur.val = 3
-    cur.next.val = 3
-
-    Both are equal.
-    Skip the duplicate.
-
-    1 → 2 → 3
-
-Final result:
-
-    1 → 2 → 3
 
 ### Complexity
 
